@@ -764,6 +764,12 @@ export interface News {
   };
   publishedAt?: string | null;
   authors?: (number | User)[] | null;
+  populatedAuthors?:
+    | {
+        id?: string | null;
+        name?: string | null;
+      }[]
+    | null;
   slug?: string | null;
   slugLock?: boolean | null;
   updatedAt: string;
@@ -1214,6 +1220,12 @@ export interface NewsSelect<T extends boolean = true> {
       };
   publishedAt?: T;
   authors?: T;
+  populatedAuthors?:
+    | T
+    | {
+        id?: T;
+        name?: T;
+      };
   slug?: T;
   slugLock?: T;
   updatedAt?: T;

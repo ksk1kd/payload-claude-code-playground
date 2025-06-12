@@ -4,17 +4,18 @@ import useClickableCard from '@/utilities/useClickableCard'
 import Link from 'next/link'
 import React, { Fragment } from 'react'
 
-import type { Post } from '@/payload-types'
+import type { Post, News } from '@/payload-types'
 
 import { Media } from '@/components/Media'
 
-export type CardPostData = Pick<Post, 'slug' | 'categories' | 'meta' | 'title'>
+export type CardPostData = Pick<Post, 'slug' | 'categories' | 'meta' | 'title' | 'heroImage'>
+export type CardNewsData = Pick<News, 'slug' | 'categories' | 'meta' | 'title' | 'heroImage'>
 
 export const Card: React.FC<{
   alignItems?: 'center'
   className?: string
-  doc?: CardPostData
-  relationTo?: 'posts'
+  doc?: CardPostData | CardNewsData
+  relationTo?: 'posts' | 'news'
   showCategories?: boolean
   title?: string
 }> = (props) => {
@@ -22,8 +23,10 @@ export const Card: React.FC<{
   const { className, doc, relationTo, showCategories, title: titleFromProps } = props
 
   const { slug, categories, meta, title } = doc || {}
+  const heroImage = 'heroImage' in doc ? doc.heroImage : undefined
   const { description, image: metaImage } = meta || {}
 
+  const displayImage = metaImage || heroImage
   const hasCategories = categories && Array.isArray(categories) && categories.length > 0
   const titleToUse = titleFromProps || title
   const sanitizedDescription = description?.replace(/\s/g, ' ') // replace non-breaking space with white space
@@ -38,8 +41,8 @@ export const Card: React.FC<{
       ref={card.ref}
     >
       <div className="relative w-full ">
-        {!metaImage && <div className="">No image</div>}
-        {metaImage && typeof metaImage !== 'string' && <Media resource={metaImage} size="33vw" />}
+        {!displayImage && <div className="">No image</div>}
+        {displayImage && typeof displayImage !== 'string' && <Media resource={displayImage} size="33vw" />}
       </div>
       <div className="p-4">
         {showCategories && hasCategories && (
