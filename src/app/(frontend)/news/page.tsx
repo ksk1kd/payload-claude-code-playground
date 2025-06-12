@@ -1,6 +1,6 @@
 import type { Metadata } from 'next/types'
 
-import { CollectionArchive } from '@/components/CollectionArchive'
+import { NewsArchive } from '@/components/NewsArchive'
 import { PageRange } from '@/components/PageRange'
 import { Pagination } from '@/components/Pagination'
 import configPromise from '@payload-config'
@@ -25,6 +25,7 @@ export default async function Page() {
       categories: true,
       meta: true,
       heroImage: true,
+      publishedAt: true,
     },
   })
 
@@ -46,7 +47,7 @@ export default async function Page() {
         />
       </div>
 
-      <CollectionArchive news={news.docs} />
+      <NewsArchive news={news.docs} />
 
       <div className="container">
         {news.totalPages > 1 && news.page && (
