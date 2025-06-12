@@ -1,0 +1,30 @@
+services:
+  payload:
+    image: node:22-alpine
+    ports:
+      - '3000:3000'
+    volumes:
+      - .:/home/node/app
+      - node_modules:/home/node/app/node_modules
+    working_dir: /home/node/app/
+    command: sh -c "npm install && tail -f /dev/null"
+    depends_on:
+      - postgres
+    env_file:
+      - .env
+
+  postgres:
+    restart: always
+    image: postgres:latest
+    volumes:
+      - data:/var/lib/postgresql/data
+    ports:
+      - '5432:5432'
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_DB: payload
+      POSTGRES_HOST_AUTH_METHOD: trust
+
+volumes:
+  data:
+  node_modules:
