@@ -6,19 +6,33 @@ import { Pagination } from '@/components/Pagination'
 import configPromise from '@payload-config'
 import { getPayload } from 'payload'
 import React from 'react'
+import { notFound } from 'next/navigation'
 import PageClient from './page.client'
 
 export const dynamic = 'force-static'
 export const revalidate = 600
 
-export default async function Page() {
+type Args = {
+  params: Promise<{
+    pageNumber: string
+  }>
+}
+
+export default async function NewsPage({ params: paramsPromise }: Args) {
+  const { pageNumber } = await paramsPromise
+  const currentPage = parseInt(pageNumber)
+
+  if (isNaN(currentPage) || currentPage < 1) {
+    notFound()
+  }
+
   const payload = await getPayload({ config: configPromise })
 
   const news = await payload.find({
     collection: 'news',
     depth: 1,
     limit: 10,
-    page: 1,
+    page: currentPage,
     overrideAccess: false,
     select: {
       title: true,
@@ -28,6 +42,10 @@ export default async function Page() {
       publishedAt: true,
     },
   })
+
+  if (currentPage > news.totalPages) {
+    notFound()
+  }
 
   return (
     <div className="pt-24 pb-24">
@@ -58,8 +76,28 @@ export default async function Page() {
   )
 }
 
-export function generateMetadata(): Metadata {
-  return {
-    title: `Payload Website Template News`,
+export function generateMetadata({ params: paramsPromise }: Args): Promise<Metadata> {
+  return paramsPromise.then(({ pageNumber }) => ({
+    title: `News - Page ${pageNumber} | Payload Website Template`,
+  }))
+}
+
+export async function generateStaticParams() {
+  const payload = await getPayload({ config: configPromise })
+  
+  const news = await payload.find({
+    collection: 'news',
+    limit: 1,
+    pagination: false,
+    overrideAccess: false,
+  })
+
+  const totalPages = Math.ceil(news.totalDocs / 10)
+  
+  const pages = []
+  for (let i = 2; i <= totalPages; i++) {
+    pages.push({ pageNumber: i.toString() })
   }
+  
+  return pages
 }
