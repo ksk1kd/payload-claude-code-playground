@@ -736,7 +736,6 @@ export interface Form {
 export interface News {
   id: number;
   title: string;
-  heroImage?: (number | null) | Media;
   content: {
     root: {
       type: string;
@@ -1207,7 +1206,6 @@ export interface PostsSelect<T extends boolean = true> {
  */
 export interface NewsSelect<T extends boolean = true> {
   title?: T;
-  heroImage?: T;
   content?: T;
   relatedNews?: T;
   categories?: T;

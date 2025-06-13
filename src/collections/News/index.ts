@@ -77,11 +77,6 @@ export const News: CollectionConfig<'news'> = {
         {
           fields: [
             {
-              name: 'heroImage',
-              type: 'upload',
-              relationTo: 'media',
-            },
-            {
               name: 'content',
               type: 'richText',
               editor: lexicalEditor({

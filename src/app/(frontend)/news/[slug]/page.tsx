@@ -10,7 +10,7 @@ import RichText from '@/components/RichText'
 
 import type { News } from '@/payload-types'
 
-import { PostHero } from '@/heros/PostHero'
+import { NewsHero } from '@/heros/NewsHero'
 import { generateMeta } from '@/utilities/generateMeta'
 import PageClient from './page.client'
 import { LivePreviewListener } from '@/components/LivePreviewListener'
@@ -50,7 +50,7 @@ export default async function NewsDetail({ params: paramsPromise }: Args) {
   if (!news) return <PayloadRedirects url={url} />
 
   return (
-    <article className="pt-16 pb-16">
+    <article>
       <PageClient />
 
       {/* Allows redirects for valid pages too */}
@@ -58,14 +58,14 @@ export default async function NewsDetail({ params: paramsPromise }: Args) {
 
       {draft && <LivePreviewListener />}
 
-      <PostHero post={news} />
+      <NewsHero news={news} />
 
-      <div className="flex flex-col items-center gap-4 pt-8">
+      <div className="pb-16">
         <div className="container">
-          <RichText className="max-w-[48rem] mx-auto" data={news.content} enableGutter={false} />
+          <RichText className="max-w-4xl mx-auto" data={news.content} enableGutter={false} />
           {news.relatedNews && news.relatedNews.length > 0 && (
             <RelatedNews
-              className="mt-12 max-w-[52rem] lg:grid lg:grid-cols-subgrid col-start-1 col-span-3 grid-rows-[2fr]"
+              className="mt-12 max-w-4xl mx-auto"
               docs={news.relatedNews.filter((newsItem) => typeof newsItem === 'object')}
             />
           )}
