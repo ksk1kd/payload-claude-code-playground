@@ -8,6 +8,7 @@ import PageClient from './page.client'
 import { Media } from '@/components/Media'
 import { ExternalLink, Github, Linkedin, Twitter } from 'lucide-react'
 import Link from 'next/link'
+import { Card } from '@/components/Card'
 
 export const dynamic = 'force-static'
 export const revalidate = 600
@@ -56,6 +57,29 @@ export default async function MemberDetail({ params: paramsPromise }: Args) {
     notFound()
   }
 
+  // Get posts authored by this member
+  const memberPosts = await payload.find({
+    collection: 'posts',
+    where: {
+      authors: {
+        equals: member.id,
+      },
+      _status: {
+        equals: 'published',
+      },
+    },
+    limit: 20,
+    sort: '-publishedAt',
+    select: {
+      title: true,
+      slug: true,
+      publishedAt: true,
+      heroImage: true,
+      categories: true,
+      meta: true,
+    },
+  })
+
   const getSocialIcon = (platform: string) => {
     switch (platform) {
       case 'github':
@@ -89,80 +113,97 @@ export default async function MemberDetail({ params: paramsPromise }: Args) {
   return (
     <div className="pt-24 pb-24">
       <PageClient />
-      <div className="container">
-        <div className="max-w-4xl mx-auto">
-          {/* Back link */}
-          <div className="mb-8">
-            <Link 
-              href="/members" 
-              className="text-muted-foreground hover:text-primary transition-colors text-sm"
-            >
-              ← Back to Members
-            </Link>
-          </div>
+      
+      {/* Back link */}
+      <div className="container mb-8">
+        <Link 
+          href="/members" 
+          className="text-muted-foreground hover:text-primary transition-colors text-sm"
+        >
+          ← Back to Members
+        </Link>
+      </div>
 
-          {/* Member profile */}
-          <div className="bg-card border border-border rounded-lg p-8">
-            <div className="flex flex-col md:flex-row gap-8">
-              {/* Avatar */}
-              <div className="flex-shrink-0">
-                <div className="w-32 h-32 rounded-full overflow-hidden bg-primary/10 flex items-center justify-center">
-                  {member.avatar && typeof member.avatar !== 'string' ? (
-                    <Media 
-                      resource={member.avatar} 
-                      className="w-full h-full object-cover" 
-                    />
-                  ) : (
-                    <span className="text-4xl font-semibold text-primary">
-                      {member.name ? member.name.charAt(0).toUpperCase() : '?'}
-                    </span>
-                  )}
+      {/* Member profile */}
+      <div className="container mb-12">
+        <div className="bg-card border border-border rounded-lg p-8">
+          <div className="flex flex-col md:flex-row gap-8">
+            {/* Avatar */}
+            <div className="flex-shrink-0">
+              <div className="w-32 h-32 rounded-full overflow-hidden bg-primary/10 flex items-center justify-center">
+                {member.avatar && typeof member.avatar !== 'string' ? (
+                  <Media 
+                    resource={member.avatar} 
+                    className="w-full h-full object-cover" 
+                  />
+                ) : (
+                  <span className="text-4xl font-semibold text-primary">
+                    {member.name ? member.name.charAt(0).toUpperCase() : '?'}
+                  </span>
+                )}
+              </div>
+            </div>
+
+            {/* Member info */}
+            <div className="flex-1 min-w-0">
+              <h1 className="text-3xl font-bold mb-2">
+                {member.name || 'Unnamed Member'}
+              </h1>
+              
+              {member.title && (
+                <p className="text-xl text-muted-foreground mb-4">
+                  {member.title}
+                </p>
+              )}
+
+              {member.bio && (
+                <div className="prose prose-lg max-w-none mb-6">
+                  <p>{member.bio}</p>
                 </div>
-              </div>
+              )}
 
-              {/* Member info */}
-              <div className="flex-1 min-w-0">
-                <h1 className="text-3xl font-bold mb-2">
-                  {member.name || 'Unnamed Member'}
-                </h1>
-                
-                {member.title && (
-                  <p className="text-xl text-muted-foreground mb-4">
-                    {member.title}
-                  </p>
-                )}
-
-                {member.bio && (
-                  <div className="prose prose-lg max-w-none mb-6">
-                    <p>{member.bio}</p>
+              {/* Social links */}
+              {member.socialLinks && member.socialLinks.length > 0 && (
+                <div>
+                  <h3 className="text-sm font-medium text-muted-foreground mb-3">Connect</h3>
+                  <div className="flex flex-wrap gap-3">
+                    {member.socialLinks.map((link, index) => (
+                      <a
+                        key={index}
+                        href={link.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-2 px-3 py-2 border border-border rounded-md hover:bg-muted transition-colors"
+                      >
+                        {getSocialIcon(link.platform)}
+                        <span className="text-sm">{getSocialLabel(link.platform)}</span>
+                      </a>
+                    ))}
                   </div>
-                )}
-
-                {/* Social links */}
-                {member.socialLinks && member.socialLinks.length > 0 && (
-                  <div>
-                    <h3 className="text-sm font-medium text-muted-foreground mb-3">Connect</h3>
-                    <div className="flex flex-wrap gap-3">
-                      {member.socialLinks.map((link, index) => (
-                        <a
-                          key={index}
-                          href={link.url}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="flex items-center gap-2 px-3 py-2 border border-border rounded-md hover:bg-muted transition-colors"
-                        >
-                          {getSocialIcon(link.platform)}
-                          <span className="text-sm">{getSocialLabel(link.platform)}</span>
-                        </a>
-                      ))}
-                    </div>
-                  </div>
-                )}
-              </div>
+                </div>
+              )}
             </div>
           </div>
         </div>
       </div>
+
+      {/* Member's posts */}
+      {memberPosts.totalDocs > 0 && (
+        <>
+          <div className="container mb-8">
+            <h2 className="text-2xl font-bold">Posts by {member.name}</h2>
+          </div>
+          <div className="container">
+            <div className="grid grid-cols-4 sm:grid-cols-8 lg:grid-cols-12 gap-y-4 gap-x-4 lg:gap-y-8 lg:gap-x-8 xl:gap-x-8">
+              {memberPosts.docs.map((post, index) => (
+                <div className="col-span-4" key={post.id || index}>
+                  <Card className="h-full" doc={post} relationTo="posts" showCategories />
+                </div>
+              ))}
+            </div>
+          </div>
+        </>
+      )}
     </div>
   )
 }

@@ -12,6 +12,7 @@ export const PostHero: React.FC<{
 }> = ({ post }) => {
   const { categories, heroImage, publishedAt, title } = post
   const populatedAuthors = 'populatedAuthors' in post ? post.populatedAuthors : undefined
+  const authors = 'authors' in post ? post.authors : undefined
 
   const hasAuthors =
     populatedAuthors && populatedAuthors.length > 0 && formatAuthors(populatedAuthors) !== ''
@@ -59,7 +60,38 @@ export const PostHero: React.FC<{
                 <div className="flex flex-col gap-1">
                   <p className="text-sm">Author</p>
 
-                  <p>{formatAuthors(populatedAuthors)}</p>
+                  <div className="flex flex-wrap gap-2">
+                    {authors && authors.map((author, index) => {
+                      if (typeof author === 'object' && author !== null) {
+                        const { name, slug, role } = author
+                        const isLast = index === authors.length - 1
+                        
+                        // Only link to member detail page if they are a member and have a slug
+                        if (role === 'member' && slug) {
+                          return (
+                            <React.Fragment key={author.id || index}>
+                              <Link 
+                                href={`/members/${slug}`}
+                                className="hover:underline hover:text-white/80 transition-colors"
+                              >
+                                {name}
+                              </Link>
+                              {!isLast && <span>, </span>}
+                            </React.Fragment>
+                          )
+                        } else {
+                          // For admin users or users without slug, just show name
+                          return (
+                            <React.Fragment key={author.id || index}>
+                              <span>{name}</span>
+                              {!isLast && <span>, </span>}
+                            </React.Fragment>
+                          )
+                        }
+                      }
+                      return null
+                    })}
+                  </div>
                 </div>
               </div>
             )}
