@@ -376,6 +376,30 @@ export interface Category {
 export interface User {
   id: number;
   name?: string | null;
+  /**
+   * Job title or position (e.g., Software Engineer, Designer)
+   */
+  title?: string | null;
+  /**
+   * Short biography or description
+   */
+  bio?: string | null;
+  /**
+   * Profile picture
+   */
+  avatar?: (number | null) | Media;
+  /**
+   * Social media and website links
+   */
+  socialLinks?:
+    | {
+        platform: 'github' | 'linkedin' | 'twitter' | 'website';
+        id?: string | null;
+      }[]
+    | null;
+  role: 'admin' | 'member';
+  slug?: string | null;
+  slugLock?: boolean | null;
   updatedAt: string;
   createdAt: string;
   email: string;
@@ -1349,6 +1373,19 @@ export interface CategoriesSelect<T extends boolean = true> {
  */
 export interface UsersSelect<T extends boolean = true> {
   name?: T;
+  title?: T;
+  bio?: T;
+  avatar?: T;
+  socialLinks?:
+    | T
+    | {
+        platform?: T;
+        url?: T;
+        id?: T;
+      };
+  role?: T;
+  slug?: T;
+  slugLock?: T;
   updatedAt?: T;
   createdAt?: T;
   email?: T;
