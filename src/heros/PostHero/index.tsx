@@ -1,5 +1,6 @@
 import { formatDateTime } from 'src/utilities/formatDateTime'
 import React from 'react'
+import Link from 'next/link'
 
 import type { Post, News } from '@/payload-types'
 
@@ -22,15 +23,24 @@ export const PostHero: React.FC<{
           <div className="uppercase text-sm mb-6">
             {categories?.map((category, index) => {
               if (typeof category === 'object' && category !== null) {
-                const { title: categoryTitle } = category
+                const { title: categoryTitle, slug: categorySlug } = category
 
                 const titleToUse = categoryTitle || 'Untitled category'
-
                 const isLast = index === categories.length - 1
+                const isPost = 'heroImage' in post // Check if it's a Post (has heroImage) vs News
 
                 return (
                   <React.Fragment key={index}>
-                    {titleToUse}
+                    {isPost && categorySlug ? (
+                      <Link 
+                        href={`/posts/category/${categorySlug}`}
+                        className="hover:underline hover:text-white/80 transition-colors"
+                      >
+                        {titleToUse}
+                      </Link>
+                    ) : (
+                      titleToUse
+                    )}
                     {!isLast && <React.Fragment>, &nbsp;</React.Fragment>}
                   </React.Fragment>
                 )
