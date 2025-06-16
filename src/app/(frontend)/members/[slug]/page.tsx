@@ -8,7 +8,7 @@ import PageClient from './page.client'
 import { Media } from '@/components/Media'
 import { ExternalLink, Github, Linkedin, Twitter } from 'lucide-react'
 import Link from 'next/link'
-import { Card } from '@/components/Card'
+import MemberPosts from './MemberPosts'
 
 export const dynamic = 'force-static'
 export const revalidate = 600
@@ -57,7 +57,7 @@ export default async function MemberDetail({ params: paramsPromise }: Args) {
     notFound()
   }
 
-  // Get posts authored by this member
+  // Get initial posts authored by this member (first 6)
   const memberPosts = await payload.find({
     collection: 'posts',
     where: {
@@ -68,7 +68,7 @@ export default async function MemberDetail({ params: paramsPromise }: Args) {
         equals: 'published',
       },
     },
-    limit: 20,
+    limit: 6,
     sort: '-publishedAt',
     select: {
       title: true,
@@ -188,22 +188,12 @@ export default async function MemberDetail({ params: paramsPromise }: Args) {
       </div>
 
       {/* Member's posts */}
-      {memberPosts.totalDocs > 0 && (
-        <>
-          <div className="container mb-8">
-            <h2 className="text-2xl font-bold">Posts by {member.name}</h2>
-          </div>
-          <div className="container">
-            <div className="grid grid-cols-4 sm:grid-cols-8 lg:grid-cols-12 gap-y-4 gap-x-4 lg:gap-y-8 lg:gap-x-8 xl:gap-x-8">
-              {memberPosts.docs.map((post, index) => (
-                <div className="col-span-4" key={post.id || index}>
-                  <Card className="h-full" doc={post} relationTo="posts" showCategories />
-                </div>
-              ))}
-            </div>
-          </div>
-        </>
-      )}
+      <MemberPosts 
+        memberId={member.id}
+        memberName={member.name}
+        initialPosts={memberPosts.docs}
+        totalPosts={memberPosts.totalDocs}
+      />
     </div>
   )
 }
