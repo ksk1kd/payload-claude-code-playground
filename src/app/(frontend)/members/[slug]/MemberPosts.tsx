@@ -4,6 +4,7 @@ import React, { useState } from 'react'
 import { Card } from '@/components/Card'
 import { Button } from '@/components/ui/button'
 import { Post } from '@/payload-types'
+import { getMemberPosts } from '@/actions/memberPosts'
 
 interface MemberPostsProps {
   memberId: string
@@ -29,10 +30,9 @@ const MemberPosts: React.FC<MemberPostsProps> = ({
 
     setLoading(true)
     try {
-      const response = await fetch(`/api/members/${memberId}/posts?page=${page + 1}&limit=6`)
-      if (response.ok) {
-        const data = await response.json()
-        setPosts(prev => [...prev, ...data.docs])
+      const result = await getMemberPosts(memberId, page + 1, 6)
+      if (result.success && result.data) {
+        setPosts(prev => [...prev, ...result.data.docs])
         setPage(prev => prev + 1)
       }
     } catch (error) {

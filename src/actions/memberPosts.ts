@@ -1,17 +1,10 @@
-import { NextRequest, NextResponse } from 'next/server'
+'use server'
+
 import { getPayload } from 'payload'
 import configPromise from '@payload-config'
 
-export async function GET(
-  request: NextRequest,
-  { params }: { params: Promise<{ memberId: string }> }
-) {
+export async function getMemberPosts(memberId: string, page: number = 1, limit: number = 6) {
   try {
-    const { memberId } = await params
-    const searchParams = request.nextUrl.searchParams
-    const page = parseInt(searchParams.get('page') || '1')
-    const limit = parseInt(searchParams.get('limit') || '6')
-    
     const payload = await getPayload({ config: configPromise })
     
     const memberPosts = await payload.find({
@@ -37,12 +30,16 @@ export async function GET(
       },
     })
 
-    return NextResponse.json(memberPosts)
+    return {
+      success: true,
+      data: memberPosts,
+    }
   } catch (error) {
     console.error('Error fetching member posts:', error)
-    return NextResponse.json(
-      { error: 'Failed to fetch member posts' },
-      { status: 500 }
-    )
+    return {
+      success: false,
+      error: 'Failed to fetch member posts',
+      data: null,
+    }
   }
 }
