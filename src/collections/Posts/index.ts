@@ -215,6 +215,14 @@ export const Posts: CollectionConfig<'posts'> = {
           name: 'name',
           type: 'text',
         },
+        {
+          name: 'role',
+          type: 'text',
+        },
+        {
+          name: 'slug',
+          type: 'text',
+        },
       ],
     },
     ...slugField(),

@@ -109,6 +109,7 @@ const queryPostBySlug = cache(async ({ slug }: { slug: string }) => {
       meta: true,
       populatedAuthors: true,
       authors: {
+        id: true,
         name: true,
         slug: true,
         role: true,

@@ -5,17 +5,14 @@ import Link from 'next/link'
 import type { Post, News } from '@/payload-types'
 
 import { Media } from '@/components/Media'
-import { formatAuthors } from '@/utilities/formatAuthors'
 
 export const PostHero: React.FC<{
   post: Post | News
 }> = ({ post }) => {
   const { categories, heroImage, publishedAt, title } = post
   const populatedAuthors = 'populatedAuthors' in post ? post.populatedAuthors : undefined
-  const authors = 'authors' in post ? post.authors : undefined
 
-  const hasAuthors =
-    populatedAuthors && populatedAuthors.length > 0 && formatAuthors(populatedAuthors) !== ''
+  const hasAuthors = populatedAuthors && populatedAuthors.length > 0
 
   return (
     <div className="relative -mt-[10.4rem] flex items-end">
@@ -61,10 +58,10 @@ export const PostHero: React.FC<{
                   <p className="text-sm">Author</p>
 
                   <div className="flex flex-wrap gap-2">
-                    {authors && authors.map((author, index) => {
+                    {populatedAuthors && populatedAuthors.map((author, index) => {
                       if (typeof author === 'object' && author !== null) {
                         const { name, slug, role } = author
-                        const isLast = index === authors.length - 1
+                        const isLast = index === populatedAuthors.length - 1
                         
                         // Only link to member detail page if they are a member and have a slug
                         if (role === 'member' && slug) {

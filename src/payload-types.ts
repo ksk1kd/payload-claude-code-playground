@@ -248,6 +248,8 @@ export interface Post {
     | {
         id?: string | null;
         name?: string | null;
+        role?: string | null;
+        slug?: string | null;
       }[]
     | null;
   slug?: string | null;
@@ -1217,6 +1219,8 @@ export interface PostsSelect<T extends boolean = true> {
     | {
         id?: T;
         name?: T;
+        role?: T;
+        slug?: T;
       };
   slug?: T;
   slugLock?: T;
