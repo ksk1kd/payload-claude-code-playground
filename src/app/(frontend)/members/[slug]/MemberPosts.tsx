@@ -32,7 +32,7 @@ const MemberPosts: React.FC<MemberPostsProps> = ({
     try {
       const result = await getMemberPosts(memberId, page + 1, 6)
       if (result.success && result.data) {
-        setPosts(prev => [...prev, ...result.data.docs])
+        setPosts(prev => [...prev, ...result.data.docs as Post[]])
         setPage(prev => prev + 1)
       }
     } catch (error) {

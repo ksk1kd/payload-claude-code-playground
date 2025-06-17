@@ -12,7 +12,7 @@ export const MemberCard: React.FC<{
   member: MemberData
 }> = (props) => {
   const { className, member } = props
-  const { name, email, title, avatar, slug } = member
+  const { name, title, avatar, slug } = member
 
   const cardContent = (
     <>

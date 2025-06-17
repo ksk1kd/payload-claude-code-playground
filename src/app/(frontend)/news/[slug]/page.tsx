@@ -8,7 +8,6 @@ import { draftMode } from 'next/headers'
 import React, { cache } from 'react'
 import RichText from '@/components/RichText'
 
-import type { News } from '@/payload-types'
 
 import { NewsHero } from '@/heros/NewsHero'
 import { generateMeta } from '@/utilities/generateMeta'
