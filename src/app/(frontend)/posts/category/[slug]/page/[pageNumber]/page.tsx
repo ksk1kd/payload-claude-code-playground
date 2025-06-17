@@ -75,7 +75,7 @@ export default async function CategoryPostsPage({ params: paramsPromise }: Args)
       <PageClient />
       <div className="container mb-16">
         <div className="prose dark:prose-invert max-w-none">
-          <h1>Posts in "{category.title}"</h1>
+          <h1>Posts in &quot;{category.title}&quot;</h1>
           <p className="text-muted-foreground">
             {posts.totalDocs} {posts.totalDocs === 1 ? 'post' : 'posts'} found
           </p>
