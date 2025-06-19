@@ -6,7 +6,6 @@ import React from 'react'
 import { notFound } from 'next/navigation'
 import PageClient from './page.client'
 import { Media } from '@/components/Media'
-import { ExternalLink, Github, Linkedin, Twitter } from 'lucide-react'
 import Link from 'next/link'
 import MemberPosts from './MemberPosts'
 
@@ -46,7 +45,6 @@ export default async function MemberDetail({ params: paramsPromise }: Args) {
       title: true,
       bio: true,
       avatar: true,
-      socialLinks: true,
       email: true,
       slug: true,
     },
@@ -80,35 +78,6 @@ export default async function MemberDetail({ params: paramsPromise }: Args) {
     },
   })
 
-  const getSocialIcon = (platform: string) => {
-    switch (platform) {
-      case 'github':
-        return <Github className="w-5 h-5" />
-      case 'linkedin':
-        return <Linkedin className="w-5 h-5" />
-      case 'twitter':
-        return <Twitter className="w-5 h-5" />
-      case 'website':
-        return <ExternalLink className="w-5 h-5" />
-      default:
-        return <ExternalLink className="w-5 h-5" />
-    }
-  }
-
-  const getSocialLabel = (platform: string) => {
-    switch (platform) {
-      case 'github':
-        return 'GitHub'
-      case 'linkedin':
-        return 'LinkedIn'
-      case 'twitter':
-        return 'Twitter'
-      case 'website':
-        return 'Website'
-      default:
-        return 'Link'
-    }
-  }
 
   return (
     <div className="pt-24 pb-24">
@@ -159,27 +128,6 @@ export default async function MemberDetail({ params: paramsPromise }: Args) {
               {member.bio && (
                 <div className="prose prose-lg max-w-none mb-6">
                   <p>{member.bio}</p>
-                </div>
-              )}
-
-              {/* Social links */}
-              {member.socialLinks && member.socialLinks.length > 0 && (
-                <div>
-                  <h3 className="text-sm font-medium text-muted-foreground mb-3">Connect</h3>
-                  <div className="flex flex-wrap gap-3">
-                    {member.socialLinks.map((link, index) => (
-                      <a
-                        key={index}
-                        href={link.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center gap-2 px-3 py-2 border border-border rounded-md hover:bg-muted transition-colors"
-                      >
-                        {getSocialIcon(link.platform)}
-                        <span className="text-sm">{getSocialLabel(link.platform)}</span>
-                      </a>
-                    ))}
-                  </div>
                 </div>
               )}
             </div>
