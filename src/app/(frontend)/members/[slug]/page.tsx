@@ -8,6 +8,7 @@ import PageClient from './page.client'
 import { Media } from '@/components/Media'
 import Link from 'next/link'
 import MemberPosts from './MemberPosts'
+import { Post } from '@/payload-types'
 
 export const dynamic = 'force-static'
 export const revalidate = 600
@@ -137,9 +138,9 @@ export default async function MemberDetail({ params: paramsPromise }: Args) {
 
       {/* Member's posts */}
       <MemberPosts 
-        memberId={member.id}
+        memberId={String(member.id)}
         memberName={member.name}
-        initialPosts={memberPosts.docs}
+        initialPosts={memberPosts.docs as Post[]}
         totalPosts={memberPosts.totalDocs}
       />
     </div>

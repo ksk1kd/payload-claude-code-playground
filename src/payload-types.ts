@@ -396,6 +396,7 @@ export interface User {
   socialLinks?:
     | {
         platform: 'github' | 'linkedin' | 'twitter' | 'website';
+        url: string;
         id?: string | null;
       }[]
     | null;

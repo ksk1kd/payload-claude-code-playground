@@ -23,7 +23,7 @@ export const Card: React.FC<{
   const { className, doc, relationTo, showCategories, title: titleFromProps } = props
 
   const { slug, categories, meta, title } = doc || {}
-  const heroImage = 'heroImage' in doc ? doc.heroImage : undefined
+  const heroImage = doc && 'heroImage' in doc ? doc.heroImage : undefined
   const { description, image: metaImage } = meta || {}
 
   const displayImage = metaImage || heroImage

@@ -9,7 +9,8 @@ import { Media } from '@/components/Media'
 export const PostHero: React.FC<{
   post: Post | News
 }> = ({ post }) => {
-  const { categories, heroImage, publishedAt, title } = post
+  const { categories, publishedAt, title } = post
+  const heroImage = 'heroImage' in post ? post.heroImage : undefined
   const populatedAuthors = 'populatedAuthors' in post ? post.populatedAuthors : undefined
 
   const hasAuthors = populatedAuthors && populatedAuthors.length > 0
@@ -60,7 +61,9 @@ export const PostHero: React.FC<{
                   <div className="flex flex-wrap gap-2">
                     {populatedAuthors && populatedAuthors.map((author, index) => {
                       if (typeof author === 'object' && author !== null) {
-                        const { name, slug, role } = author
+                        const name = 'name' in author ? author.name : undefined
+                        const slug = 'slug' in author ? author.slug : undefined
+                        const role = 'role' in author ? author.role : undefined
                         const isLast = index === populatedAuthors.length - 1
                         
                         // Only link to member detail page if they are a member and have a slug

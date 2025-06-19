@@ -61,7 +61,7 @@ export const Users: CollectionConfig = {
         },
         {
           name: 'url',
-          type: 'url',
+          type: 'text',
           required: true,
         },
       ],

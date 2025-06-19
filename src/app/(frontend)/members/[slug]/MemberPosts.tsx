@@ -8,7 +8,7 @@ import { getMemberPosts } from '@/actions/memberPosts'
 
 interface MemberPostsProps {
   memberId: string
-  memberName: string | null
+  memberName: string | null | undefined
   initialPosts: Post[]
   totalPosts: number
 }
