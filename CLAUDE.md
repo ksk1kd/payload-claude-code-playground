@@ -4,14 +4,14 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Development Commands
 
-- `pnpm dev` - Start development server
-- `pnpm build` - Build for production  
-- `pnpm start` - Start production server
-- `pnpm lint` - Run ESLint
-- `pnpm lint:fix` - Run ESLint with auto-fix
-- `pnpm generate:types` - Generate Payload TypeScript types
-- `pnpm payload migrate:create` - Create database migration
-- `pnpm payload migrate` - Run database migrations
+- `npm run dev` - Start development server
+- `npm run build` - Build for production  
+- `npm run start` - Start production server
+- `npm run lint` - Run ESLint
+- `npm run lint:fix` - Run ESLint with auto-fix
+- `npm run generate:types` - Generate Payload TypeScript types
+- `npm run payload migrate:create` - Create database migration
+- `npm run payload migrate` - Run database migrations
 
 ## Development Workflow
 
