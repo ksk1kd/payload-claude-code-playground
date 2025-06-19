@@ -13,6 +13,18 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - `pnpm payload migrate:create` - Create database migration
 - `pnpm payload migrate` - Run database migrations
 
+## Development Workflow
+
+**IMPORTANT**: After completing any feature development, ALWAYS run the following commands to ensure code quality:
+
+1. `npm run build` - Verify TypeScript compilation and build succeeds
+2. `npm run lint` - Check for ESLint errors and warnings
+
+Only consider development complete when both commands pass without errors. This ensures:
+- TypeScript type safety
+- Code quality standards
+- Build compatibility
+
 ## Architecture
 
 This is a **Payload CMS** website template built with **Next.js App Router**. The application combines a headless CMS backend with a statically generated frontend in a single deployment.
