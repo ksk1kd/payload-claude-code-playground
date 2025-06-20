@@ -3,6 +3,7 @@ import type { Metadata } from 'next/types'
 import { JobsArchive } from '@/components/JobsArchive'
 import { PageRange } from '@/components/PageRange'
 import { Pagination } from '@/components/Pagination'
+import { RecruitCTA } from '@/components/RecruitCTA'
 import configPromise from '@payload-config'
 import { getPayload } from 'payload'
 import React from 'react'
@@ -51,6 +52,8 @@ export default async function Page() {
           <Pagination page={jobs.page} totalPages={jobs.totalPages} basePath="/recruit" />
         )}
       </div>
+
+      <RecruitCTA className="mt-16" />
     </div>
   )
 }

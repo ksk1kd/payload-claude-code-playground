@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 
 import { PayloadRedirects } from '@/components/PayloadRedirects'
+import { RecruitCTA } from '@/components/RecruitCTA'
 import configPromise from '@payload-config'
 import { getPayload } from 'payload'
 import { draftMode } from 'next/headers'
@@ -64,6 +65,8 @@ export default async function JobDetail({ params: paramsPromise }: Args) {
           <RichText className="max-w-[48rem] mx-auto" data={job.content} enableGutter={false} />
         </div>
       </div>
+
+      <RecruitCTA className="mt-16" />
     </article>
   )
 }
