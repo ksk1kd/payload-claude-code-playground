@@ -8,7 +8,7 @@ import type { Job } from '@/payload-types'
 const PageClient: React.FC<{
   job: Job
 }> = ({ job: initialJob }) => {
-  const { data } = useLivePreview({
+  const { data: _data } = useLivePreview({
     initialData: initialJob,
     serverURL: process.env.NEXT_PUBLIC_SERVER_URL || '',
   })
