@@ -10,6 +10,16 @@ The News collection provides streamlined content management for organizational c
 - **Content Organization**: Category-based filtering and discovery
 - **Publication Workflow**: Draft, schedule, and publish capabilities
 
+## Access Control
+
+### Read Access
+- **Published news**: Public access for website visitors
+- **Draft news**: Authenticated users only
+- **Preview URLs**: Accessible via preview tokens
+
+### Write Access
+- **Create/Update/Delete**: Requires authentication for content management
+
 ## Field Structure
 
 ### Core Fields
@@ -87,9 +97,9 @@ Comprehensive SEO configuration:
 
 ### Default Columns
 Admin list view displays:
-- Title
-- Slug
-- Last updated timestamp
+- **Title**: News article identifier
+- **Slug**: URL-friendly identifier
+- **Last updated timestamp**: Recent modification tracking
 
 ### Content Management
 - **Sidebar fields**: Authors, categories, related news

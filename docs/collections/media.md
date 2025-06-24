@@ -89,6 +89,12 @@ Images can be accessed directly via URL or through Payload's media API for addit
 
 ## Admin Interface Features
 
+### Default Columns
+Admin list view displays:
+- **Filename**: Original file name
+- **Alt text**: Accessibility description
+- **File size**: Storage usage information
+
 ### Media Library
 - **Grid view**: Visual browsing of uploaded media
 - **Search functionality**: Find media by filename or alt text
@@ -107,22 +113,19 @@ Images can be accessed directly via URL or through Payload's media API for addit
 - **Progress tracking**: Upload progress indicators
 - **Error handling**: Clear error messages
 
-## Integration with Collections
+## Content Relationships
 
-### Content Collections
-Media is referenced by:
-- **Pages**: Hero images and MediaBlocks
-- **Posts**: Hero images and embedded content
-- **News**: Embedded media content
-- **Jobs**: Supporting imagery
+### Direct Relationships
+- **Pages**: Hero images and embedded content through MediaBlocks
+- **Posts**: Hero images and rich media content
+- **News**: Embedded media content and illustrations
+- **Jobs**: Supporting imagery and visual content
+- **Users**: Avatar images and profile pictures
 
-### User Profiles
-- **Avatars**: User profile pictures
-- **Team photos**: Member profile images
-
-### SEO Integration
-- **Meta images**: Open Graph images for social sharing
-- **Featured images**: Content thumbnails and previews
+### Integration Features
+- **SEO Integration**: Open Graph images for social sharing
+- **Responsive Images**: Multiple sizes for optimal display
+- **Rich Captions**: Formatted media descriptions
 
 ## Performance Optimization
 

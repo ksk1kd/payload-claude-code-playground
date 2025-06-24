@@ -10,6 +10,16 @@ The Jobs collection provides comprehensive recruitment content management throug
 - **SEO Optimization**: Built-in search optimization for job discovery
 - **Content Organization**: Rich text formatting for detailed job descriptions
 
+## Access Control
+
+### Read Access
+- **Published jobs**: Public access for job seekers
+- **Draft jobs**: Authenticated users only
+- **Preview URLs**: Accessible via preview tokens
+
+### Write Access
+- **Create/Update/Delete**: Requires authentication for content management
+
 ## Field Structure
 
 ### Core Fields
@@ -63,9 +73,9 @@ Comprehensive SEO configuration:
 
 ### Default Columns
 Admin list view displays:
-- Title
-- Slug
-- Last updated timestamp
+- **Title**: Job posting identifier
+- **Slug**: URL-friendly identifier
+- **Last updated timestamp**: Recent modification tracking
 
 ### Content Management
 - **Rich text editor**: Advanced Lexical editor
@@ -123,17 +133,15 @@ Jobs can embed specialized content blocks:
 
 ## Content Relationships
 
-### Media Integration
-- **Company branding**: Logo and brand imagery
-- **Team photos**: Show work environment
-- **Product images**: Context for role
-- **Office spaces**: Location-specific imagery
+### Direct Relationships
+- **Media**: Company branding, team photos, and office imagery
+- **Content Blocks**: Embedded specialized content for job descriptions
+- **SEO Integration**: Meta images and social sharing optimization
 
-### Content Organization
-Jobs collection uses a simplified organizational approach:
-- **Individual Focus**: Each job posting stands as independent content
+### Integration Features
 - **Search-Based Discovery**: Content discovery through search functionality
-- **Embedded Department Info**: Department information included within job content
+- **Independent Content**: Each job posting stands as standalone content
+- **Rich Media**: Support for embedded images and visual content
 
 ## Performance Optimization
 

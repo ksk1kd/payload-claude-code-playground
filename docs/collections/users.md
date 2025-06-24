@@ -70,9 +70,9 @@ All operations require authentication for privacy protection:
 
 ### Default Columns
 Admin list view displays:
-- Name
-- Email
-- Role
+- **Name**: User display name
+- **Email**: Primary authentication identifier
+- **Role**: User permission level
 
 ### Profile Management
 - **Avatar upload**: Visual profile representation
@@ -94,10 +94,10 @@ Admin list view displays:
 
 ## Content Relationships
 
-### Author Attribution
-Users serve as authors for:
-- **Posts**: Blog content attribution
-- **News**: News article authors
+### Direct Relationships
+- **Posts**: Blog content attribution and authorship
+- **News**: News article authors and collaboration
+- **Media**: Avatar images through Media collection
 - **Content blocks**: Rich content authorship
 
 ### Safe Data Exposure

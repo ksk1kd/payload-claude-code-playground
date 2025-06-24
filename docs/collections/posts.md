@@ -10,6 +10,16 @@ The Posts collection provides comprehensive blog functionality through:
 - **Content Organization**: Category-based organization and related content
 - **Publication Workflow**: Draft, schedule, and publish capabilities
 
+## Access Control
+
+### Read Access
+- **Published posts**: Public access for website visitors
+- **Draft posts**: Authenticated users only
+- **Preview URLs**: Accessible via preview tokens
+
+### Write Access
+- **Create/Update/Delete**: Requires authentication for content management
+
 ## Field Structure
 
 ### Core Fields
@@ -92,9 +102,9 @@ Comprehensive SEO configuration identical to Pages collection:
 
 ### Default Columns
 Admin list view displays:
-- Title
-- Slug  
-- Last updated timestamp
+- **Title**: Post identifier
+- **Slug**: URL-friendly identifier
+- **Last updated timestamp**: Recent modification tracking
 
 ### Content Management
 - **Sidebar fields**: Authors, categories, related posts
@@ -130,7 +140,7 @@ Admin list view displays:
 ### Direct Relationships
 - **Categories**: Content organization and filtering
 - **Related Posts**: Content discovery and engagement
-- **Authors**: Attribution and author pages
+- **Authors**: Attribution and author information
 - **Media**: Hero images and embedded content
 
 ### Block Integration

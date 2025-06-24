@@ -10,6 +10,16 @@ The Pages collection provides the foundation for website structure through:
 - **SEO Integration**: Built-in search engine optimization features
 - **Live Preview**: Real-time preview during content editing
 
+## Access Control
+
+### Read Access
+- **Published pages**: Public access for website visitors
+- **Draft pages**: Authenticated users only
+- **Preview URLs**: Accessible via preview tokens
+
+### Write Access
+- **Create/Update/Delete**: Requires authentication for content management
+
 ## Field Structure
 
 ### Core Fields
@@ -55,9 +65,9 @@ Comprehensive SEO configuration:
 
 ### Default Columns
 Admin list view displays:
-- Title
-- Slug
-- Last updated timestamp
+- **Title**: Page identifier
+- **Slug**: URL-friendly identifier
+- **Last updated timestamp**: Recent modification tracking
 
 ### Preview Generation
 - Automatic preview URL generation based on page slug
@@ -98,15 +108,18 @@ Pages are accessible at:
 
 ## Content Relationships
 
-### Media Integration
-- Hero section can reference Media collection
-- MediaBlock can embed images/videos
-- SEO meta images reference Media collection
+### Direct Relationships
+- **Media**: Hero images and embedded content through MediaBlocks
+- **Forms**: Contact forms and data collection through FormBlocks
+- **Blocks**: Flexible content through various block types
 
-### Form Integration
-- FormBlock enables contact forms
-- Configurable field types and validation
-- Email notifications and data storage
+### Block Integration
+Pages can embed specialized content blocks:
+- **CallToAction**: Promotional content and conversion elements
+- **Content**: Rich text with advanced formatting options
+- **MediaBlock**: Images and videos with captions
+- **Archive**: Automatic content listings
+- **FormBlock**: Contact forms and data collection
 
 ## Block System Integration
 
@@ -139,17 +152,6 @@ Each block type provides:
 - **Meta Description Field**: Custom descriptions for search engines
 - **Preview Field**: Real-time preview of search results and social cards
 
-## Access Control
-
-### Read Access
-- **Published pages**: Public access
-- **Draft pages**: Authenticated users only
-- **Preview URLs**: Accessible via preview tokens
-
-### Write Access
-- **Create**: Authenticated users
-- **Update**: Authenticated users
-- **Delete**: Authenticated users
 
 ## Related Documentation
 - [Block System Overview](../blocks/overview.md)

@@ -48,15 +48,15 @@ Categories are intentionally simple:
 
 ## Content Relationships
 
-### Posts Collection
-- **Multiple Categories**: Posts can be assigned to multiple categories
-- **Content Organization**: Groups related blog posts together
-- **Content Discovery**: Helps users find related and relevant content
+### Direct Relationships
+- **Posts**: Multiple category assignment per post for content organization
+- **News**: Topic and department-based categorization system
+- **Content Discovery**: Enhanced findability across content types
 
-### News Collection
-- **News Organization**: Categorizes news articles by topic or department
-- **Department Filtering**: Enables filtering by organizational departments
-- **Content Discovery**: Facilitates related news suggestions
+### Usage Patterns
+- **Content Organization**: Groups related content together
+- **Filtering**: Enables content filtering and discovery
+- **Navigation**: Support category-based navigation
 
 
 ## Admin Interface Features
@@ -67,11 +67,11 @@ Categories are intentionally simple:
 - **Bulk operations**: Manage multiple categories
 - **Search**: Find categories quickly
 
-### Default Interface
-- **Title column**: Primary category identifier
-- **Slug column**: URL-friendly identifier
-- **Usage tracking**: See which categories are used
-- **Quick actions**: Edit, delete, duplicate
+### Default Columns
+Admin list view displays:
+- **Title**: Category display name
+- **Slug**: URL-friendly identifier
+- **Usage tracking**: Content usage statistics
 
 ## Category Usage Patterns
 
