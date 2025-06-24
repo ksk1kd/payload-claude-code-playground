@@ -129,7 +129,7 @@ Through automated processes, safe user data is made available:
 - **Website**: Personal or professional website
 
 ### Link Validation
-- URL format validation
+- Link format validation
 - Platform-specific formatting
 - Frontend rendering optimization
 

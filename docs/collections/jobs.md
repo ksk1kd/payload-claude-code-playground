@@ -15,7 +15,7 @@ The Jobs collection provides comprehensive recruitment content management throug
 ### Read Access
 - **Published jobs**: Public access for job seekers
 - **Draft jobs**: Authenticated users only
-- **Preview URLs**: Accessible via preview tokens
+- **Preview Access**: Accessible via preview tokens
 
 ### Write Access
 - **Create/Update/Delete**: Requires authentication for content management
@@ -68,13 +68,11 @@ Comprehensive SEO configuration:
 
 ### Live Preview
 - Real-time preview during editing
-- URL generation: `/jobs/{slug}`
 - Preview token support for draft postings
 
 ### Default Columns
 Admin list view displays:
 - **Title**: Job posting identifier
-- **Slug**: URL-friendly identifier
 - **Last updated timestamp**: Recent modification tracking
 
 ### Content Management
@@ -82,11 +80,7 @@ Admin list view displays:
 - **Media integration**: Embedded content blocks
 - **SEO optimization**: Built-in meta field management
 
-## URL Structure & Frontend Integration
-
-### URL Pattern
-- Individual job posting pages: `/jobs/{slug}`
-- Jobs listing page: `/jobs`
+## Data Structure & Integration
 
 ### Default Population
 - **Optimized Queries**: Essential data loaded by default
@@ -127,7 +121,6 @@ Jobs can embed specialized content blocks:
 - **Facebook sharing**: Company culture focus
 
 ### Search Engine Visibility
-- **URL structure**: Clean, descriptive job URLs
 - **Content structure**: Clear headings and organization
 - **Meta tags**: Complete SEO field usage
 

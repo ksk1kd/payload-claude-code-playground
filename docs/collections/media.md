@@ -32,8 +32,8 @@ The Media collection provides comprehensive file and image management:
 ## Upload Configuration
 
 ### Storage Location
-- **Static Directory**: Files stored in Next.js public folder for direct access
-- **Direct URLs**: Simple access patterns like `/media/filename.jpg`
+- **Static Directory**: Files stored in public folder for direct access
+- **Direct Access**: Simple file access patterns
 - **Admin Thumbnails**: Optimized thumbnails for administrative interface
 - **Focal Point Selection**: Smart cropping anchor point for responsive images
 
@@ -76,16 +76,16 @@ The system automatically generates multiple image sizes:
 - **Standardized Format**: Consistent social media appearance
 - **Center Cropping**: Automatic focal point-based cropping
 
-## Media URL Structure
+## Media File Structure
 
 ### File Access Patterns
 - **Original Files**: Direct access to uploaded files
 - **Size Variants**: Automatic generation of multiple image sizes
-- **Predictable URLs**: Consistent naming pattern for all variants
+- **Consistent Naming**: Predictable file naming patterns
 - **Optimized Delivery**: Appropriate size selection for different use cases
 
 ### Dynamic Access
-Images can be accessed directly via URL or through Payload's media API for additional processing options.
+Images can be accessed directly or through Payload's media API for additional processing options.
 
 ## Admin Interface Features
 
@@ -184,7 +184,7 @@ Admin list view displays:
 - **Access control**: Authenticated upload requirements
 
 ### Public Access
-- **Direct URLs**: Files accessible without authentication
+- **Direct Access**: Files accessible without authentication
 - **Cache headers**: Appropriate caching policies
 - **Content delivery**: Secure file serving
 

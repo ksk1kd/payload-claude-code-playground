@@ -22,14 +22,8 @@ The Categories collection provides a streamlined taxonomy system for content org
 ### Title
 - **Primary Identifier**: Category display name for all interfaces
 - **Admin Interface**: Used as the primary admin title
-- **Frontend Display**: Shown in category lists and filter options
+- **Content Organization**: Used for categorization and filtering
 - **Required Field**: Essential identifier for all categories
-
-### Slug
-- **URL Generation**: SEO-friendly URLs for category pages
-- **Auto-Generated**: Automatically created from category title
-- **Customizable**: Can be manually edited for optimization
-- **Unique Constraint**: Each category maintains unique identifier
 
 ## Simplicity by Design
 
@@ -63,14 +57,13 @@ Categories are intentionally simple:
 
 ### Simple Management
 - **List view**: Clean category listing
-- **Easy creation**: Simple form with title and slug
+- **Easy creation**: Simple form with title field
 - **Bulk operations**: Manage multiple categories
 - **Search**: Find categories quickly
 
 ### Default Columns
 Admin list view displays:
 - **Title**: Category display name
-- **Slug**: URL-friendly identifier
 - **Usage tracking**: Content usage statistics
 
 ## Category Usage Patterns
@@ -120,17 +113,12 @@ Business
 - **Sorting Options**: Categories sorted alphabetically by title
 - **Complete Listing**: All categories available for navigation structure
 
-### Category Pages
-- **Category Information**: Display category details and description
-- **Related Content**: Show all content assigned to specific category
-- **Published Content**: Only display published posts and news items
 
 ## SEO Considerations
 
-### Category Page SEO
+### Category SEO
 - **Title optimization**: Use category title in page title
 - **Meta descriptions**: Describe category content
-- **URL structure**: Clean, descriptive URLs
 - **Internal linking**: Link between related categories
 
 ### Content Discovery
@@ -158,7 +146,7 @@ Business
 - **Simple Structure**: Minimal configuration for focused taxonomy management
 - **Access Control**: Public read access with authenticated write operations
 - **Admin Interface**: Title-based identification and clean interface
-- **Essential Fields**: Title and slug fields for basic taxonomy functionality
+- **Essential Fields**: Title field for basic taxonomy functionality
 
 ### Relationship Queries
 - **Content Filtering**: Find posts and news by specific category assignments

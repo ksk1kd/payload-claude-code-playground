@@ -15,7 +15,7 @@ The News collection provides streamlined content management for organizational c
 ### Read Access
 - **Published news**: Public access for website visitors
 - **Draft news**: Authenticated users only
-- **Preview URLs**: Accessible via preview tokens
+- **Preview Access**: Accessible via preview tokens
 
 ### Write Access
 - **Create/Update/Delete**: Requires authentication for content management
@@ -92,13 +92,11 @@ Comprehensive SEO configuration:
 
 ### Live Preview
 - Real-time preview during editing
-- URL generation: `/news/{slug}`
 - Preview token support for draft content
 
 ### Default Columns
 Admin list view displays:
 - **Title**: News article identifier
-- **Slug**: URL-friendly identifier
 - **Last updated timestamp**: Recent modification tracking
 
 ### Content Management
@@ -118,12 +116,7 @@ Admin list view displays:
 - **Privacy Protection**: Only essential author details are made available
 - **Performance Optimized**: Efficient processing designed for news content needs
 
-## URL Structure & Frontend Integration
-
-### URL Pattern
-- Individual news article pages: `/news/{slug}`
-- News listing page: `/news`
-- Category-filtered news: `/news/category/{slug}`
+## Data Structure & Integration
 
 ### Default Population
 - **Optimized Queries**: Essential data loaded by default
@@ -163,7 +156,6 @@ News articles can embed specialized content blocks:
 - **Auto-generated meta**: From title and content
 - **Open Graph**: Social media sharing optimization
 - **News-specific markup**: Optimized for news aggregators
-- **URL optimization**: Clean, descriptive URLs
 
 ### Social Integration
 - **Category-based discovery**: Related content suggestions

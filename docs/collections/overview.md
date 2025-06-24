@@ -43,11 +43,6 @@ Content collections support:
 - Scheduled publishing capabilities
 - Live preview with auto-save functionality
 
-### URL Structure
-All content collections use slug-based URLs:
-- Auto-generated slugs from titles
-- Custom slug override capability
-- URL validation and formatting
 
 ## Collection Capabilities Overview
 

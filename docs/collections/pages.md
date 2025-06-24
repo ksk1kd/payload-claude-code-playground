@@ -15,7 +15,7 @@ The Pages collection provides the foundation for website structure through:
 ### Read Access
 - **Published pages**: Public access for website visitors
 - **Draft pages**: Authenticated users only
-- **Preview URLs**: Accessible via preview tokens
+- **Preview Access**: Accessible via preview tokens
 
 ### Write Access
 - **Create/Update/Delete**: Requires authentication for content management
@@ -61,16 +61,13 @@ Comprehensive SEO configuration:
 ### Live Preview
 - Real-time preview during editing
 - Auto-save every 100ms for optimal preview experience
-- Preview URL generation based on page slug
 
 ### Default Columns
 Admin list view displays:
 - **Title**: Page identifier
-- **Slug**: URL-friendly identifier
 - **Last updated timestamp**: Recent modification tracking
 
 ### Preview Generation
-- Automatic preview URL generation based on page slug
 - Real-time preview during content editing
 - Draft content accessible via preview tokens
 
@@ -93,18 +90,6 @@ Admin list view displays:
 - **After Deletion**: Cleans up cached pages when content is removed
 - **Before Publishing**: Sets publication timestamps automatically
 
-## URL Structure & Routing
-
-### Slug Generation
-- Uses shared slug field configuration across collections
-- Auto-generated from page title
-- Customizable for SEO optimization
-- Validates URL format and ensures uniqueness
-
-### Frontend Routing
-Pages are accessible at:
-- Custom page URLs based on slug (e.g., /about, /contact)
-- Home page accessible at root URL
 
 ## Content Relationships
 
@@ -144,7 +129,6 @@ Each block type provides:
 - **Auto-generation**: Meta titles from page titles
 - **Social Sharing**: Open Graph image support
 - **Search Preview**: Real-time preview of search results
-- **URL Optimization**: Clean, SEO-friendly URLs
 
 ### Meta Field Configuration
 - **Meta Title Field**: Auto-generation capabilities from page title

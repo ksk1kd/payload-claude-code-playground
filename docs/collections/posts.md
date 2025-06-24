@@ -15,7 +15,7 @@ The Posts collection provides comprehensive blog functionality through:
 ### Read Access
 - **Published posts**: Public access for website visitors
 - **Draft posts**: Authenticated users only
-- **Preview URLs**: Accessible via preview tokens
+- **Preview Access**: Accessible via preview tokens
 
 ### Write Access
 - **Create/Update/Delete**: Requires authentication for content management
@@ -97,13 +97,11 @@ Comprehensive SEO configuration identical to Pages collection:
 
 ### Live Preview
 - Real-time preview during editing
-- URL generation: `/posts/{slug}`
 - Preview token support for draft content
 
 ### Default Columns
 Admin list view displays:
 - **Title**: Post identifier
-- **Slug**: URL-friendly identifier
 - **Last updated timestamp**: Recent modification tracking
 
 ### Content Management
@@ -123,12 +121,7 @@ Admin list view displays:
 - **Selective Information**: Only public-safe author details are made available
 - **Performance Optimized**: Efficient processing of author relationships
 
-## URL Structure & Frontend Integration
-
-### URL Pattern
-- Individual post pages: `/posts/{slug}`
-- Posts listing page: `/posts`
-- Category-filtered posts: `/posts/category/{slug}`
+## Data Structure & Integration
 
 ### Default Population
 - **Optimized Queries**: Only essential data loaded by default
@@ -155,7 +148,6 @@ Posts can embed specialized content blocks:
 - **Auto-generated meta**: From title and content
 - **Open Graph**: Social media sharing optimization
 - **Schema markup**: Rich snippets for search engines
-- **URL optimization**: Clean, descriptive URLs
 
 ### Social Integration
 - **Category-based discovery**: Related content suggestions
