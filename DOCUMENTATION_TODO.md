@@ -13,8 +13,8 @@ Creating structured documentation including:
 ## Progress Overview
 
 **Total Tasks: 33**
-- [x] Completed: 14
-- [ ] Remaining: 19
+- [x] Completed: 20
+- [ ] Remaining: 13
 
 ## Documentation Structure & Tasks
 
@@ -66,13 +66,13 @@ Each page document includes:
 - Access Control
 
 **Page Documents:**
-- [ ] **docs/pages/overview.md** - Page structure and routing overview
+- [x] **docs/pages/overview.md** - Page structure and routing overview
 - [ ] **docs/pages/top-page.md** - Top page (/) design specification
-- [ ] **docs/pages/dynamic-pages.md** - Dynamic pages ([slug]) specification
-- [ ] **docs/pages/news-pages.md** - News listing and detail pages
-- [ ] **docs/pages/posts-pages.md** - Posts listing, categories, and detail pages
-- [ ] **docs/pages/recruit-pages.md** - Recruitment listing and job detail pages
-- [ ] **docs/pages/members-pages.md** - Members listing and profile pages
+- [x] **docs/pages/dynamic-pages.md** - Dynamic pages ([slug]) specification
+- [x] **docs/pages/news-pages.md** - News listing and detail pages
+- [x] **docs/pages/posts-pages.md** - Posts listing, categories, and detail pages
+- [x] **docs/pages/recruit-pages.md** - Recruitment listing and job detail pages
+- [x] **docs/pages/members-pages.md** - Members listing and profile pages
 - [ ] **docs/pages/search-page.md** - Search functionality and results page
 - [ ] **docs/pages/error-pages.md** - 404 and error handling pages
 
