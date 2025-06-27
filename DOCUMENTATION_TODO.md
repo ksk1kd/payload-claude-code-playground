@@ -13,8 +13,8 @@ Creating structured documentation including:
 ## Progress Overview
 
 **Total Tasks: 33**
-- [x] Completed: 20
-- [ ] Remaining: 13
+- [x] Completed: 23
+- [ ] Remaining: 10
 
 ## Documentation Structure & Tasks
 
@@ -67,14 +67,14 @@ Each page document includes:
 
 **Page Documents:**
 - [x] **docs/pages/overview.md** - Page structure and routing overview
-- [ ] **docs/pages/top-page.md** - Top page (/) design specification
+- [x] **docs/pages/top-page.md** - Top page (/) design specification
 - [x] **docs/pages/dynamic-pages.md** - Dynamic pages ([slug]) specification
 - [x] **docs/pages/news-pages.md** - News listing and detail pages
 - [x] **docs/pages/posts-pages.md** - Posts listing, categories, and detail pages
 - [x] **docs/pages/recruit-pages.md** - Recruitment listing and job detail pages
 - [x] **docs/pages/members-pages.md** - Members listing and profile pages
-- [ ] **docs/pages/search-page.md** - Search functionality and results page
-- [ ] **docs/pages/error-pages.md** - 404 and error handling pages
+- [x] **docs/pages/search-page.md** - Search functionality and results page
+- [x] **docs/pages/error-pages.md** - 404 and error handling pages
 
 ### 6. Documentation Navigation (1 task)
 
