@@ -25,6 +25,12 @@ Only consider development complete when both commands pass without errors. This 
 - Code quality standards
 - Build compatibility
 
+**Documentation Updates**: When implementing feature changes, ALWAYS update relevant documentation alongside code changes. This includes:
+- Updating component documentation for any modified components
+- Adding documentation for new features or functionality
+- Updating architectural notes for structural changes
+- Ensuring documentation accurately reflects the current implementation
+
 ## Architecture
 
 This is a **Payload CMS** website template built with **Next.js App Router**. The application combines a headless CMS backend with a statically generated frontend in a single deployment.
